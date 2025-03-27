@@ -7,3 +7,46 @@ html {font-size: 10px;}
 .inner {
     padding: 0 25rem;
 }
+
+#main-wrap {
+    font-size: 3rem;
+}
+
+/* header */
+header h1 {text-align: center;}
+header nav {background: #e8e8e8;}
+header .header-gnb {display: flex;justify-content: space-between;}
+
+/* main */
+main .main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
+}
+main .illust {
+    grid-row: 1/7;
+    height: 45rem;
+    background: url(./studyIllust_01.png) center / contain no-repeat;
+}
+main .board {
+    background: lightblue;
+}
+main .notice {
+    grid-row: 1/3;
+}
+main .joinning {
+    grid-row: 3/7;
+}
+main .references {
+    grid-row: 1/4;
+}
+main .visitor {
+    grid-row: 4/7;
+}
+
+.mem-board ul {display: flex;justify-content: space-between;font-size: 1.5rem;}
+.mem-board ul>li {width: 9rem;height: 9rem;background: lightcoral}
+
+footer .copy {text-align: center;}
