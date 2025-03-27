@@ -1,37 +1,155 @@
 /* main.css for kosmo154study index.html */
 
+/* font */
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* common */
 
 html {font-size: 10px;}
 .inner {
-    padding: 0 25rem;
+    width: 1420px;
+    margin: 0 auto;
+    /* border: 1px dotted coral; */
 }
 
 #main-wrap {
+    height: 100vh;
     font-size: 3rem;
+    /* background: rgb(0 0 0 / 0.05); */
 }
 
 /* header */
-header h1 {text-align: center;}
-header nav {background: #e8e8e8;}
-header .header-gnb {display: flex;justify-content: space-between;}
+header {position: relative;}
+header h1 {
+    display: flex;justify-content: center;align-items: center;
+    height: 10.5rem;
+    font-family: "GongGothicMedium";
+    font-size: 5rem;
+}
+header nav {
+    display: flex;justify-content: center;align-items: flex-end;
+    height: 7rem;
+    background: #e8e8e8;
+}
+header .header-gnb {
+    display: flex;justify-content: space-between;align-items: center;
+    font-family: "GowunDodum-Regular";font-weight: normal;
+    li {
+        flex-shrink: 0;cursor: pointer;
+        padding-bottom: 1.3rem;
+    }
+    li:hover {
+        font-weight: bold;
+        color: #4444ac;
+    }
+}
+header .nav2 {
+    position: absolute;
+    display: none;justify-content: center;align-items: center;z-index: 10;
+    width: 100%;
+    border-top:1px solid #c8c8c8;
+    background: #e8e8e8;
+    &.on {
+        display: flex;
+    }
+}
+header .header-gnb-dep2 {
+    position: relative;
+    display: flex;justify-content: space-between;
+    height: 16.5rem;
+    font-family: 'GowunDodum-Regular';
+    font-size: 2.25rem;
+    ul{
+        position: absolute;top: 1rem;
+        padding-left: 1rem;
+        border-left: 1px solid #c8c8c8;
+        cursor: pointer;
+    }
+    ul:nth-child(1){left: 0;}
+    ul:nth-child(2){left: 21.85%;}
+    ul:nth-child(3){left: 43.775%;}
+    ul:nth-child(4){right: 24.2%;}
+    ul:nth-child(5){right: 0.1%;}
+    ul>li:hover{
+        font-weight: bolder;
+        color: #4444ac;
+    }
+}
+
 
 /* main */
+main {margin-top: 5rem;}
 main .main-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
     row-gap: 2rem;
     column-gap: 2rem;
+    h2, h3 {cursor: pointer;}
+    h2:hover, h3:hover {
+        color: #4444ac;
+    }
 }
-main .illust {
+main .mem-board {
+    display: flex;flex-direction: column;justify-content: flex-end;
     grid-row: 1/7;
-    height: 45rem;
-    background: url(./studyIllust_01.png) center / contain no-repeat;
+    height: 63.5rem;
+    background: url(./studyIllust_01.png) bottom / contain no-repeat;
+}
+main .mem-board>h2 {
+    align-self: center;
+    flex-grow: 1;
+    font-family: "BMJUA";
+    font-size: 2.75rem;
+}
+main .mem-link-box {
+    display: grid;
+    height: 60rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 0.1rem;
+    column-gap: 0.1rem;
+    cursor: pointer;
+    /* border: 1px dotted blue; */
+    li {
+        display: flex;justify-content: center;align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        &:hover {
+            opacity: 1;
+            background: rgb(255 255 255 / 0.55);
+            border: 5px solid darkcyan;
+        }
+    }
 }
 main .board {
-    background: lightblue;
+    padding: 1.25rem 1.75rem;
+    background: rgb(0 0 0 / 0.05);
+    font-family: "BMJUA";
+    font-size: 2.15rem;
 }
 main .notice {
     grid-row: 1/3;
@@ -46,7 +164,7 @@ main .visitor {
     grid-row: 4/7;
 }
 
-.mem-board ul {display: flex;justify-content: space-between;font-size: 1.5rem;}
-.mem-board ul>li {width: 9rem;height: 9rem;background: lightcoral}
-
-footer .copy {text-align: center;}
+footer .copy {
+    margin-top: 1.5rem;
+    font-size: 1.75rem;text-align: center;
+}
